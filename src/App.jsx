@@ -3,6 +3,8 @@ import { useState } from "react";
 function App() {
   const articles = [];
 
+  const [addNewArticle, setAddNewArticle] = useState("");
+
   return (
     <>
       <div className="container text-start ">
@@ -13,7 +15,10 @@ function App() {
             className="p-2 w-50"
             type="text"
             placeholder="Inserisci titolo articolo..."
-            value={""}
+            value={addNewArticle}
+            onChange={(e) => {
+              setAddNewArticle(e.target.value);
+            }}
           />
           <button className="btn btn-primary ms-3">Invia</button>
         </form>
