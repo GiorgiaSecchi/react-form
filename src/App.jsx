@@ -23,6 +23,7 @@ function App() {
     setAddNewArticle(""); //reset value input
   };
 
+  // gestisce eliminazione di un titolo
   const handleRemoveArticle = (removeIndex) => {
     const removedArticle = articles[removeIndex];
     const newArticle = articles.filter((article, index) => {
