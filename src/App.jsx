@@ -23,12 +23,13 @@ function App() {
     setAddNewArticle(""); //reset value input
   };
 
-  const removeArticle = (removeIndex) => {
+  const handleRemoveArticle = (removeIndex) => {
+    const removedArticle = articles[removeIndex];
     const newArticle = articles.filter((article, index) => {
       return index !== removeIndex;
     });
     setArticles(newArticle);
-    // console.log(`L'articolo "${removeIndex}" è stato eliminato.`);
+    console.log(`L'articolo "${removedArticle}" è stato eliminato.`);
   };
 
   return (
@@ -56,7 +57,7 @@ function App() {
               {article}
               <button
                 className="btn btn-outline-danger btn-sm ms-3 "
-                onClick={() => removeArticle(index)}
+                onClick={() => handleRemoveArticle(index)}
               >
                 Elimina
               </button>
