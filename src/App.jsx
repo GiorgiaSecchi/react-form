@@ -1,16 +1,25 @@
 import { useState } from "react";
 
 function App() {
+  // Array "articles" (vuoto) in cui aggiungere i titoli articolo
   const [articles, setArticles] = useState([]);
 
   const [addNewArticle, setAddNewArticle] = useState("");
 
+  // gestisce nuovi titoli inseriti nel input (value)
+  const handleInputChange = (event) => {
+    setAddNewArticle(event.target.value);
+  };
+
+  // gestisce l'invio nuovi titoli dal form
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(`L'articolo "${addNewArticle}" è stato aggiunto!`);
 
+    // aggiunge il nuovo titolo all'array "articles" clonato
     const newArticle = [...articles, addNewArticle];
     setArticles(newArticle);
+    setAddNewArticle(""); //reset value input
   };
 
   return (
@@ -24,9 +33,7 @@ function App() {
             type="text"
             placeholder="Inserisci titolo articolo..."
             value={addNewArticle}
-            onChange={(e) => {
-              setAddNewArticle(e.target.value);
-            }}
+            onChange={handleInputChange}
           />
           <button className="btn btn-primary ms-3">Invia</button>
         </form>
