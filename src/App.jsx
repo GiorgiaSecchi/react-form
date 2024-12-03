@@ -15,6 +15,10 @@ function App() {
   // gestisce l'invio nuovi titoli dal form
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (addNewArticle === "") {
+      return alert("Devi inserire un titolo da aggiungere!");
+    }
     console.log(`L'articolo "${addNewArticle}" è stato aggiunto!`);
 
     // aggiunge il nuovo titolo all'array "articles" clonato
