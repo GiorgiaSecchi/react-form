@@ -5,12 +5,17 @@ function App() {
 
   const [addNewArticle, setAddNewArticle] = useState("");
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`L'articolo "${addNewArticle}" è stato INVIATO!`);
+  };
+
   return (
     <>
       <div className="container text-start ">
         <h1 className="mt-5 mb-4">ARTICOLI</h1>
 
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <input
             className="p-2 w-50"
             type="text"
