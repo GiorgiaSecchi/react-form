@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 function App() {
-  // Array "articles" (vuoto) in cui aggiungere i titoli articolo
+  // Stato iniziale Array "articles" (vuoto)
   const [articles, setArticles] = useState([]);
 
+  // Stato iniziale dell'input
   const [addNewArticle, setAddNewArticle] = useState("");
 
   // gestisce nuovi titoli inseriti nel input (value)
@@ -20,6 +21,14 @@ function App() {
     const newArticle = [...articles, addNewArticle];
     setArticles(newArticle);
     setAddNewArticle(""); //reset value input
+  };
+
+  const removeArticle = (removeIndex) => {
+    const newArticle = articles.filter((article, index) => {
+      return index !== removeIndex;
+    });
+    setArticles(newArticle);
+    // console.log(`L'articolo "${removeIndex}" è stato eliminato.`);
   };
 
   return (
@@ -45,7 +54,10 @@ function App() {
               className="list-group-item d-flex justify-content-between"
             >
               {article}
-              <button className="btn btn-outline-danger btn-sm ms-3 ">
+              <button
+                className="btn btn-outline-danger btn-sm ms-3 "
+                onClick={() => removeArticle(index)}
+              >
                 Elimina
               </button>
             </li>
