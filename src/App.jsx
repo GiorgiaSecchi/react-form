@@ -29,12 +29,17 @@ function App() {
         </form>
         <hr />
         <ul className="text-start list-group">
-          <li className="list-group-item d-flex justify-content-between">
-            prova
-            <button className="btn btn-outline-danger btn-sm ms-3 ">
-              Elimina
-            </button>
-          </li>
+          {articles.map((article, index) => (
+            <li
+              key={index}
+              className="list-group-item d-flex justify-content-between"
+            >
+              {article}
+              <button className="btn btn-outline-danger btn-sm ms-3 ">
+                Elimina
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </>
