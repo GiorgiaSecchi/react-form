@@ -17,8 +17,10 @@ function App() {
     event.preventDefault();
 
     if (addNewArticle === "") {
-      return alert("Devi inserire un titolo da aggiungere!");
+      alert("Devi inserire un titolo da aggiungere!");
+      return;
     }
+
     console.log(`L'articolo "${addNewArticle}" è stato aggiunto!`);
 
     // aggiunge il nuovo titolo all'array "articles" clonato
