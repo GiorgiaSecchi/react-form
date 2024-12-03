@@ -1,13 +1,16 @@
 import { useState } from "react";
 
 function App() {
-  const articles = [];
+  const [articles, setArticles] = useState([]);
 
   const [addNewArticle, setAddNewArticle] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`L'articolo "${addNewArticle}" è stato INVIATO!`);
+    console.log(`L'articolo "${addNewArticle}" è stato aggiunto!`);
+
+    const newArticle = [...articles, addNewArticle];
+    setArticles(newArticle);
   };
 
   return (
